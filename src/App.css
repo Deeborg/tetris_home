@@ -1,5 +1,62 @@
 .App {
   text-align: center;
+  position: relative;
+}
+
+/* ALTEX Logo */
+.logo-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  /* background: rgba(255, 255, 255, 0.7); */
+  border-radius: 10px;
+  padding: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(0, 255, 65, 0.3);
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+  border-color: #00ff41;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  transform: scale(1.05);
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.logo-container:hover .logo {
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px #00ff41);
+}
+
+/* Responsive Logo */
+@media (max-width: 768px) {
+  .logo-container {
+    top: 15px;
+    left: 15px;
+    padding: 8px;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-container {
+    top: 10px;
+    left: 10px;
+    padding: 6px;
+  }
+  
+  .logo {
+    height: 35px;
+  }
 }
 
 .App-logo {

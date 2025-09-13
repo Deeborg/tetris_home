@@ -1,0 +1,81 @@
+.pill-toggle-container {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 1000;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.pill-tooltip {
+  background: rgba(30,30,30,0.95);
+  color: #fff;
+  font-family: monospace;
+  font-size: 13px;
+  padding: 5px 14px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  position: relative;
+  right: 0;
+}
+.pill-toggle {
+  width: 100px;
+  height: 44px;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #bfe3e0 60%, #e3e3e3 100%);
+  border: 3px solid #222;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  box-shadow: 0 4px 18px 0 rgba(0,0,0,0.10), 0 1.5px 0 #fff inset;
+  animation: pill-flash-blue 1.2s infinite alternate;
+}
+.pill-toggle.red {
+  background: linear-gradient(90deg, #222 60%, #4d0000 100%);
+  animation: pill-flash-red 0.7s infinite alternate;
+}
+@keyframes pill-flash-blue {
+  0% { box-shadow: 0 0 16px 2px #4fa3e3, 0 4px 18px 0 rgba(0,0,0,0.10); }
+  100% { box-shadow: 0 0 32px 6px #4fa3e3, 0 4px 18px 0 rgba(0,0,0,0.10); }
+}
+@keyframes pill-flash-red {
+  0% { box-shadow: 0 0 16px 2px #e34f4f, 0 4px 18px 0 rgba(0,0,0,0.10); }
+  100% { box-shadow: 0 0 32px 8px #e34f4f, 0 4px 18px 0 rgba(0,0,0,0.10); }
+}
+.pill-ball {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #6fd0ff 70%, #4fa3e3 100%);
+  border: 3px solid #222;
+  position: absolute;
+  left: 6px;
+  top: 4px;
+  transition: left 0.3s, background 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+  box-shadow: 0 0 12px 2px #4fa3e3;
+}
+.pill-toggle.red .pill-ball {
+  left: 56px;
+  background: radial-gradient(circle at 30% 30%, #ff7a7a 70%, #e34f4f 100%);
+  box-shadow: 0 0 18px 4px #e34f4f;
+}
+.matrix-canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 44px;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s;
+  border-radius: 24px;
+}
