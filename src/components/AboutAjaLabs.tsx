@@ -179,11 +179,11 @@ const timelineData = [
 ];
 
 interface AboutAjaLabsProps {
-  onNavigateToUniverse?: () => void;
+  onGoBack?: () => void;
 }
 
 const AboutAjaLabs: React.FC<AboutAjaLabsProps> = ({
-  onNavigateToUniverse,
+  onGoBack,
 }) => {
   const [showTimeline, setShowTimeline] = useState(false);
 
@@ -247,14 +247,11 @@ const AboutAjaLabs: React.FC<AboutAjaLabsProps> = ({
           ))}
         </div>
 
-        {/* AJA Universe Button */}
-        {onNavigateToUniverse && (
-          <div className="universe-button-container">
-            <button className="universe-button" onClick={onNavigateToUniverse}>
-              <span className="button-text">AJA Universe</span>
-              <span className="button-icon">→</span>
-            </button>
-          </div>
+        {/* Back Button */}
+        {onGoBack && (
+          <button className="back-button" onClick={onGoBack}>
+            ← Back
+          </button>
         )}
       </div>
     </div>

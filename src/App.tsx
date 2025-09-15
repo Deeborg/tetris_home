@@ -3,43 +3,67 @@
 import React, { useState } from "react";
 import LandingPage from "./components/LandingPage";
 import AjaUniverse from "./components/AjaUniverse";
+import DataPipelineProblem from "./components/DataPipelineProblem";
+import AboutAjaLabs from "./components/AboutAjaLabs";
 import "./App.css";
 import logo from "./assets/ALTEX.png";
 
 
 function App() {
-  const [isRed, setIsRed] = useState(false);
-  const [currentPage, setCurrentPage] = useState<"landing" | "universe">(
-    "landing"
+  const [currentPage, setCurrentPage] = useState<"game" | "dataPipeline" | "aboutAja" | "universe">(
+    "game"
   );
 
-  const handleToggle = () => {
-    setIsRed(!isRed);
+  const handleNavigateToGame = () => {
+    setCurrentPage("game");
+  };
+
+  const handleNavigateToDataPipeline = () => {
+    setCurrentPage("dataPipeline");
+  };
+
+  const handleNavigateToAboutAja = () => {
+    setCurrentPage("aboutAja");
   };
 
   const handleNavigateToUniverse = () => {
     setCurrentPage("universe");
   };
 
-  const handleNavigateToLanding = () => {
-    setCurrentPage("landing");
+  const handleGoBack = () => {
+    if (currentPage === "aboutAja" || currentPage === "universe") {
+      setCurrentPage("dataPipeline");
+    } else if (currentPage === "dataPipeline") {
+      setCurrentPage("game");
+    }
   };
 
   return (
     <div className="App">
-      {/* ALTEX Logo */}
-      <div className="logo-container">
+      {/* ALTEX Logo - Home Button */}
+      <div className="logo-container" onClick={handleNavigateToGame} style={{ cursor: 'pointer' }}>
         <img src={logo} alt="ALTEX" className="logo" />
       </div>
 
-      {currentPage === "landing" ? (
+      {currentPage === "game" ? (
         <LandingPage
-          onToggle={handleToggle}
-          isRed={isRed}
+          onNavigateToDataPipeline={handleNavigateToDataPipeline}
+          onGoBack={handleGoBack}
+        />
+      ) : currentPage === "dataPipeline" ? (
+        <DataPipelineProblem 
+          onNavigateToAboutAja={handleNavigateToAboutAja}
           onNavigateToUniverse={handleNavigateToUniverse}
+          onGoBack={handleGoBack}
+        />
+      ) : currentPage === "aboutAja" ? (
+        <AboutAjaLabs 
+          onGoBack={handleGoBack}
         />
       ) : (
-        <AjaUniverse onNavigateToLanding={handleNavigateToLanding} />
+        <AjaUniverse 
+          onGoBack={handleGoBack}
+        />
       )}
     </div>
   );

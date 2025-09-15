@@ -1,24 +1,21 @@
 import React, { useEffect, useRef } from "react";
 import PillToggle from "./PillToggle";
-import AboutAjaLabs from "./AboutAjaLabs";
 import { initTetris } from "../game/tetris";
 import "./LandingPage.css";
 
 interface LandingPageProps {
-  onToggle: () => void;
-  isRed: boolean;
-  onNavigateToUniverse: () => void;
+  onNavigateToDataPipeline: () => void;
+  onGoBack?: () => void;
 }
 
 const LandingPage: React.FC<LandingPageProps> = ({
-  onToggle,
-  isRed,
-  onNavigateToUniverse,
+  onNavigateToDataPipeline,
+  onGoBack,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!isRed && containerRef.current) {
+    if (containerRef.current) {
       const container = containerRef.current;
       const instances = initTetris(container, 1); // 1 board
       return () => {
@@ -32,7 +29,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
         });
       };
     }
-  }, [isRed]);
+  }, []);
 
   return (
     <div className="landing-page">
@@ -41,22 +38,16 @@ const LandingPage: React.FC<LandingPageProps> = ({
         <div className="comets"></div>
       </div>
 
-      {/* Pill Toggle */}
-      <PillToggle onToggle={onToggle} isRed={isRed} />
+      {/* Pill Toggle - now navigates to DataPipeline */}
+      <PillToggle onToggle={onNavigateToDataPipeline} isRed={false} />
 
       {/* Tetris Game Container */}
-      {!isRed && <div ref={containerRef} className="tetris-container" />}
+      <div ref={containerRef} className="tetris-container" />
 
-      {/* Show AboutAjaLabs when toggle is red */}
-
-      {isRed ? (
-        <AboutAjaLabs onNavigateToUniverse={onNavigateToUniverse} />
-      ) : (
-        <div className="welcome-message">
-          {/* <h1>Welcome to AJA Labs</h1>
-          <p>Explore our innovative projects and products.</p> */}
-        </div>
-      )}
+      <div className="welcome-message">
+        {/* <h1>Welcome to AJA Labs</h1>
+        <p>Explore our innovative projects and products.</p> */}
+      </div>
     </div>
   );
 };
