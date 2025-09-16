@@ -454,18 +454,6 @@
   position: relative;
 }
 
-.timeline-container::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, #64ffda, #4ecdc4, #45b7d1);
-  transform: translateX(-50%);
-  box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
-}
-
 .timeline-event {
   display: flex;
   margin-bottom: 40px;
@@ -477,18 +465,7 @@
   flex-direction: row-reverse;
 }
 
-.timeline-event::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  background: #64ffda;
-  border-radius: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 20px rgba(100, 255, 218, 0.8);
-  z-index: 2;
-}
+/* Removed timeline circles */
 
 .timeline-year {
   background: rgba(100, 255, 218, 0.2);
