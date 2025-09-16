@@ -275,7 +275,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
     <div className="news-section">
       <h2 className="section-title">
         <span className="title-icon">📰</span>
-        Latest AI Business News
+        The AI Business Report
       </h2>
       {loading ? (
         <div className="loading-spinner">
@@ -322,7 +322,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
     <div className="stats-section">
       <h2 className="section-title">
         <span className="title-icon">📈</span>
-        AI & Automation Impact Statistics
+        AI & Automation Impact 
       </h2>
       <div className="stats-grid">
         {statsCards.map((stat, index) => (

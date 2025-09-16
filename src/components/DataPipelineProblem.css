@@ -144,8 +144,15 @@
   border-radius: 15px;
   padding: 1px 20px;
   margin: 2rem 0;
-  border: 1px solid rgba(0, 247, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 247, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.2), 0 0 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.pipeline-flow:hover {
+  border-color: rgba(0, 247, 255, 0.5);
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.3), 0 0 40px rgba(0, 0, 0, 0.3);
 }
 
 .section-title {
