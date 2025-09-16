@@ -206,37 +206,53 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
   const renderOverview = () => (
     <div className="overview-section">
       <div className="pipeline-flow">
-        <h2 className="flow-title">Data Pipeline Flow</h2>
+        <h2 className="section-title">Data Pipeline Flow</h2>
         <div className="flow-diagram">
           <div className="flow-stage">
+            <div className="stage-circle">1</div>
             <span className="stage-name">Data Collection</span>
           </div>
           <div className="flow-arrow">→</div>
           <div className="flow-stage">
-            <span className="stage-name">Processing</span>
+            <div className="stage-circle">2</div>
+            <span className="stage-name">Data Processing</span>
           </div>
           <div className="flow-arrow">→</div>
           <div className="flow-stage">
-            <span className="stage-name">Analysis</span>
+            <div className="stage-circle">3</div>
+            <span className="stage-name">Data Analysis</span>
           </div>
           <div className="flow-arrow">→</div>
           <div className="flow-stage">
-            <span className="stage-name">Decision</span>
+            <div className="stage-circle">4</div>
+            <span className="stage-name">Data Visualization</span>
           </div>
           <div className="flow-arrow">→</div>
           <div className="flow-stage">
-            <span className="stage-name">Outcome</span>
+            <div className="stage-circle">5</div>
+            <span className="stage-name">Decision Making</span>
           </div>
         </div>
-        <p className="flow-description">
-          At each stage, clutter or inefficiency can creep in.
-        </p>
       </div>
       
-      <div className="intro-description">
-        <p>
-          The business landscape is changing rapidly. Data is growing faster than ever, and with the rise of cloud platforms, AI, and real-time decision-making, companies are under pressure to do more with what they collect. But the reality is different — cluttered, inconsistent, and siloed data is slowing down analytics, leading to delays, wrong insights, compliance risks, and even missed revenue opportunities. As AI becomes central to business strategy, especially with the arrival of generative AI, the quality of data will decide whether companies gain an edge or fall behind. Our focus is simple: cut out the clutter before it clogs the system.
-        </p>
+      <div className="overview-content">
+        <div className="feature-card">
+          <div className="feature-icon">📊</div>
+          <h3>Data Intelligence</h3>
+          <p>Transform raw data into actionable insights with our advanced analytics platform. Unlock hidden patterns and drive data-driven decisions.</p>
+        </div>
+        
+        <div className="feature-card">
+          <div className="feature-icon">🤖</div>
+          <h3>AI-Powered Analysis</h3>
+          <p>Leverage cutting-edge machine learning models to process and analyze complex datasets with unprecedented accuracy.</p>
+        </div>
+        
+        <div className="feature-card">
+          <div className="feature-icon">⚡</div>
+          <h3>Real-time Processing</h3>
+          <p>Get instant insights with our high-performance processing engine that handles data streams in real-time.</p>
+        </div>
       </div>
     </div>
   );
@@ -330,11 +346,11 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
       <div className="comets"></div>
 
       {/* Back Button */}
-      {onGoBack && (
+      {/*onGoBack && (
         <button className="data-pipeline-back-button" onClick={onGoBack}>
           ← Back
         </button>
-      )}
+      )*/}
 
       {/* Navigation Buttons */}
       <div className="navigation-buttons">
