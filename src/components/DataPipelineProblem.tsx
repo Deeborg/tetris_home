@@ -64,8 +64,22 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
       source: "Financial Times"
     },
     {
-      title: "Automated Data Processing Reduces Manual Work by 80%",
-      description: "Companies implementing AI data pipelines see dramatic efficiency improvements",
+      title: "LayerX uses AI to cut enterprise back-office workload, scores $100M in Series B",
+      description: "LayerX’s AI SaaS platform helps enterprises scale back-office automation, automating finance workflows to slash manual workloads . The Series B funding underscores demand for AI-driven tools that boost operational efficiency",
+      link: "#",
+      pubDate: "2024-01-08",
+      source: "Harvard Business Review"
+    },
+    {
+      title: "MIT report misunderstood: Shadow AI economy booms while headlines cry failure",
+      description: "VentureBeat highlights a new MIT study finding that employee's  widespread “shadow” use of AI is quietly yielding big gains.",
+      link: "#",
+      pubDate: "2024-01-08",
+      source: "Harvard Business Review"
+    },
+    {
+      title: "Pinkfish helps enterprises build AI agents through natural language processing",
+      description: "Pinkfish is a startup that lets companies quickly automate workflows via AI agents using simple language prompts. The story highlights that Pinkfish enabled its customer Ipsy to fully automate a price-request process that used to require a three-person team",
       link: "#",
       pubDate: "2024-01-08",
       source: "Harvard Business Review"
@@ -272,13 +286,8 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
         <div className="news-grid">
           {newsItems.map((item, index) => (
             <div key={index} className="news-card">
-              <div className="news-header">
-                <span className="news-source">{item.source}</span>
-                <span className="news-date">{new Date(item.pubDate).toLocaleDateString()}</span>
-              </div>
               <h3 className="news-title">{item.title}</h3>
               <p className="news-description">{item.description}</p>
-              <a href={item.link} className="news-link">Read More →</a>
             </div>
           ))}
         </div>
