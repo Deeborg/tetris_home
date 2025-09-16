@@ -338,14 +338,6 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
           </div>
         ))}
       </div>
-      <div className="stats-summary">
-        <h3>Why These Numbers Matter</h3>
-        <p>
-          Organizations implementing comprehensive AI and automation solutions see transformative results across all business functions. 
-          From preventing fraud and reducing risks to capturing new opportunities and streamlining operations, the ROI is clear and measurable. 
-          Our solutions help you achieve these industry-leading results while maintaining compliance and security standards.
-        </p>
-      </div>
     </div>
   );
 
