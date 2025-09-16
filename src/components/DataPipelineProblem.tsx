@@ -75,17 +75,10 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
   // Enhanced AI Timeline Events
   const timelineEvents: TimelineEvent[] = [
     {
-      year: "1950",
-      title: "Alan Turing's Test",
-      description: "Turing proposes the famous test for machine intelligence, laying the foundation for AI evaluation.",
-      impact: "Established the philosophical framework for AI",
-      category: "research"
-    },
-    {
       year: "1956",
-      title: "Dartmouth Conference",
-      description: "The term 'Artificial Intelligence' is coined, marking the birth of AI as a field.",
-      impact: "Birth of AI as an academic discipline",
+      title: "Birth of AI",
+      description: "Dartmouth Conference introduces the term “Artificial Intelligence.",
+      impact: "Establishes AI as a formal field of study.",
       category: "research"
     },
     {
@@ -354,7 +347,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
       </div>
 
       <div className="content-wrapper">
-        <h1 className="main-title">Data Pipeline Problem</h1>
+        <h1 className="main-title">AI Business Intelligence Hub</h1>
         
         {/* Section Navigation */}
         <div className="section-nav">
