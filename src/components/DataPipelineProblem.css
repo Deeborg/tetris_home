@@ -492,18 +492,22 @@
 }
 
 .section-nav-btn {
-  background: rgba(100, 255, 218, 0.1);
-  border: 2px solid rgba(100, 255, 218, 0.3);
-  color: #64ffda;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid transparent;
+  color: #fff;
   padding: 12px 24px;
+  margin: 0 10px 10px 0;
   border-radius: 30px;
-  cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
+  cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
+  background: linear-gradient(45deg, #64ffda, #00bcd4, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: 2px solid rgba(100, 255, 218, 0.3);
 }
 
 .section-nav-btn::before {
@@ -513,7 +517,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s;
 }
 
@@ -522,25 +526,17 @@
 }
 
 .section-nav-btn:hover {
-  background: rgba(100, 255, 218, 0.2);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3);
+  background: linear-gradient(45deg, #64ffda, #00bcd4, #2196f3);
+  -webkit-text-fill-color: white;
 }
 
 .section-nav-btn.active {
-  background: rgba(100, 255, 218, 0.3);
+  background: linear-gradient(45deg, #64ffda, #00bcd4, #2196f3);
+  -webkit-text-fill-color: white;
   border-color: #64ffda;
   box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
-}
-
-.section-content {
-  min-height: 600px;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Overview Section */

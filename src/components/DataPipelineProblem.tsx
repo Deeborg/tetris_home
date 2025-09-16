@@ -378,19 +378,19 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
             className={`section-nav-btn ${activeSection === 'news' ? 'active' : ''}`}
             onClick={() => setActiveSection('news')}
           >
-            AI News
+            AI Pulse
           </button>
           <button 
             className={`section-nav-btn ${activeSection === 'timeline' ? 'active' : ''}`}
             onClick={() => setActiveSection('timeline')}
           >
-            Timeline
+            Milestones
           </button>
           <button 
             className={`section-nav-btn ${activeSection === 'stats' ? 'active' : ''}`}
             onClick={() => setActiveSection('stats')}
           >
-            Statistics
+            Data Insights
           </button>
         </div>
 
