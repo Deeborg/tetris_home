@@ -224,6 +224,7 @@ const AboutAjaLabs: React.FC<AboutAjaLabsProps> = ({
 
   return (
     <div className="about-aja-labs">
+        <div className="stars"></div>
       <div className="labs-background">
         <div className="matrix-rain"></div>
       </div>
