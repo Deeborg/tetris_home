@@ -18,21 +18,21 @@
 }
 
 .logo-container:hover {
-  border-color: #00ff41;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  /* border-color: #00ff41; */
+  /* box-shadow: 0 0 20px rgba(0, 255, 65, 0.3); */
   transform: scale(1.05);
 }
 
 .logo {
   height: 30px;
   width: auto;
-  filter: brightness(0) invert(1);
+  /* filter: brightness(0) invert(1); */
   transition: filter 0.3s ease;
 }
 
-.logo-container:hover .logo {
-  filter: brightness(0) invert(1) drop-shadow(0 0 10px #00ff41);
-}
+/* .logo-container:hover .logo {
+  filter: brightness(0)  drop-shadow(0 0 10px #00ff41);
+} */
 
 /* Responsive Logo */
 @media (max-width: 768px) {

@@ -6,7 +6,7 @@ import AjaUniverse from "./components/AjaUniverse";
 import DataPipelineProblem from "./components/DataPipelineProblem";
 import AboutAjaLabs from "./components/AboutAjaLabs";
 import "./App.css";
-import logo from "./assets/ALTEX.png";
+import logo from "./assets/altexlogowhite.png";
 
 
 function App() {
