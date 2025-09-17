@@ -126,7 +126,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
     },
     {
       year: "2017",
-      title: "Attention Is All You Need” Paper",
+      title: "Attention Is All You Need ",
       description: "Google Brain researchers introduce the Transformer model architecture.",
       impact: "Lays the foundation for BERT, GPT, and today’s generative AI revolution.",
       category: "breakthrough"

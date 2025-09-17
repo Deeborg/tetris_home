@@ -71,11 +71,11 @@ const AjaUniverse: React.FC<AjaUniverseProps> = ({ onGoBack }) => {
         </button>
       )}
 
-      <h1 className="main-title">AJA Universe</h1>
+      <h1 className="main-title">ALTeX  Universe</h1>
 
       <div className="universe-labels">
-        <h2 className="products-universe-label">Products Galaxy</h2>
-        <h2 className="service-universe-label">Service Galaxy</h2>
+        <h2 className="products-universe-label">Products </h2>
+        <h2 className="service-universe-label">Value Partners</h2>
       </div>
 
       <div className="items-wrapper">
