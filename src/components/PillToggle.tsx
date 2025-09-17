@@ -7,9 +7,12 @@ const chars =
 interface PillToggleProps {
   onToggle: () => void;
   isRed: boolean;
+  delay?: number; // Delay in milliseconds before navigation
 }
 
-export default function PillToggle({ onToggle, isRed }: PillToggleProps) {
+export default function PillToggle({ onToggle, isRed, delay = 500 }: PillToggleProps) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isToggled, setIsToggled] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [hover, setHover] = useState(false);
   const fontSize = 12;
@@ -50,14 +53,30 @@ export default function PillToggle({ onToggle, isRed }: PillToggleProps) {
     return () => cancelAnimationFrame(animationId);
   }, []);
 
+  const handleClick = () => {
+    if (isLoading) return; // Prevent multiple clicks
+    
+    setIsLoading(true);
+    setIsToggled(!isToggled);
+    
+    // Call onToggle after the delay
+    setTimeout(() => {
+      onToggle();
+      setIsLoading(false);
+    }, delay);
+  };
+
+  // Calculate if we should show the red state
+  const showRed = isRed || (isLoading && isToggled);
+
   return (
     <div className="pill-toggle-container">
       <div className="pill-tooltip">
-        {isRed ? "Business as Usual" : "See What's Really Happening"}
+        {showRed ? "Business as Usual" : "See What's Really Happening"}
       </div>
       <div
-        className={`pill-toggle${isRed ? " red" : ""}`}
-        onClick={onToggle}
+        className={`pill-toggle${showRed ? " red" : ""}${isLoading ? " loading" : ""}`}
+        onClick={handleClick}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
