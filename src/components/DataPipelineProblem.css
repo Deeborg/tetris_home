@@ -1181,3 +1181,35 @@
     padding: 1.5rem;
   }
 }
+/* --- Add these styles to DataPipelineProblem.css --- */
+
+/* 1. Modify news-card to use flexbox */
+.news-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* This styles the new "Read More" button/link */
+.read-more-link {
+  margin-top: auto; /* This is the magic that pushes the button to the bottom! */
+  padding-top: 1rem;
+  color: #64ffda;
+  text-decoration: none;
+  font-weight: 600;
+  align-self: flex-start; /* Aligns the button to the left */
+  transition: all 0.3s ease;
+}
+
+.read-more-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.8);
+  transform: translateX(5px);
+}
+
+/* 3. Remove the old styling for the full card link (optional cleanup) */
+/* You can delete this class if it exists in your CSS */
+.news-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}

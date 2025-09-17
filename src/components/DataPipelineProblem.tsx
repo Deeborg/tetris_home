@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./DataPipelineProblem.css";
 import galaxyImage from "../assets/Galaxy.png";
+import News from "./AiNews";
+
 
 interface DataPipelineProblemProps {
   onNavigateToAboutAja: () => void;
@@ -8,13 +10,7 @@ interface DataPipelineProblemProps {
   onGoBack?: () => void;
 }
 
-interface NewsItem {
-  title: string;
-  description: string;
-  link: string;
-  pubDate: string;
-  source: string;
-}
+
 
 interface TimelineEvent {
   year: string;
@@ -38,54 +34,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
   onGoBack 
 }) => {
   const [activeSection, setActiveSection] = useState<'news' | 'timeline' | 'stats'>('timeline');
-  const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
-  const [loading, setLoading] = useState(false);
-
-  // Mock AI news data (in production, you'd fetch from RSS or news API)
-  const mockNewsData: NewsItem[] = [
-    {
-      title: "OpenAI Launches GPT-4 Turbo with Enhanced Business Capabilities",
-      description: "New model offers improved reasoning for enterprise applications, reducing operational costs by up to 40%",
-      link: "#",
-      pubDate: "2024-01-15",
-      source: "TechCrunch"
-    },
-    {
-      title: "Microsoft Copilot Integration Saves Companies $2.9M Annually",
-      description: "Enterprise study shows significant productivity gains across finance and operations departments",
-      link: "#",
-      pubDate: "2024-01-12",
-      source: "Forbes"
-    },
-    {
-      title: "AI-Powered Fraud Detection Prevents $50B in Financial Losses",
-      description: "Machine learning algorithms now detect 95% of fraudulent transactions in real-time",
-      link: "#",
-      pubDate: "2024-01-10",
-      source: "Financial Times"
-    },
-    {
-      title: "LayerX uses AI to cut enterprise back-office workload, scores $100M in Series B",
-      description: "LayerX’s AI SaaS platform helps enterprises scale back-office automation, automating finance workflows to slash manual workloads . The Series B funding underscores demand for AI-driven tools that boost operational efficiency",
-      link: "#",
-      pubDate: "2024-01-08",
-      source: "Harvard Business Review"
-    },
-    {
-      title: "MIT report misunderstood: Shadow AI economy booms while headlines cry failure",
-      description: "VentureBeat highlights a new MIT study finding that employee's  widespread “shadow” use of AI is quietly yielding big gains.",
-      link: "#",
-      pubDate: "2024-01-08",
-      source: "Harvard Business Review"
-    },
-    {
-      title: "Pinkfish helps enterprises build AI agents through natural language processing",
-      description: "Pinkfish is a startup that lets companies quickly automate workflows via AI agents using simple language prompts. The story highlights that Pinkfish enabled its customer Ipsy to fully automate a price-request process that used to require a three-person team",
-      link: "#",
-      pubDate: "2024-01-08",
-      source: "Harvard Business Review"
-    }
-  ];
+  
 
   // Enhanced AI Timeline Events
   const timelineEvents: TimelineEvent[] = [
@@ -221,16 +170,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
     }
   ];
 
-  useEffect(() => {
-    // Simulate loading news data
-    if (activeSection === 'news') {
-      setLoading(true);
-      setTimeout(() => {
-        setNewsItems(mockNewsData);
-        setLoading(false);
-      }, 1000);
-    }
-  }, [activeSection]);
+  
 
   const renderNews = () => (
     <div className="news-section">
@@ -238,21 +178,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
         <span className="title-icon">📰</span>
         The AI Business Report
       </h2>
-      {loading ? (
-        <div className="loading-spinner">
-          <div className="spinner"></div>
-          <p>Loading latest AI news...</p>
-        </div>
-      ) : (
-        <div className="news-grid">
-          {newsItems.map((item, index) => (
-            <div key={index} className="news-card">
-              <h3 className="news-title">{item.title}</h3>
-              <p className="news-description">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      )}
+      <News />
     </div>
   );
 
