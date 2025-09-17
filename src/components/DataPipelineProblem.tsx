@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./DataPipelineProblem.css";
+import galaxyImage from "../assets/Galaxy.png";
 
 interface DataPipelineProblemProps {
   onNavigateToAboutAja: () => void;
@@ -36,7 +37,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
   onNavigateToUniverse, 
   onGoBack 
 }) => {
-  const [activeSection, setActiveSection] = useState<'overview' | 'news' | 'timeline' | 'stats'>('overview');
+  const [activeSection, setActiveSection] = useState<'news' | 'timeline' | 'stats'>('timeline');
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -124,6 +125,13 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
       category: "breakthrough"
     },
     {
+      year: "2017",
+      title: "Attention Is All You Need” Paper",
+      description: "Google Brain researchers introduce the Transformer model architecture.",
+      impact: "Lays the foundation for BERT, GPT, and today’s generative AI revolution.",
+      category: "breakthrough"
+    },
+    {
       year: "2018",
       title: "BERT Transforms NLP",
       description: "Google's BERT model revolutionizes natural language understanding.",
@@ -156,6 +164,13 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
       title: "AI Agents & Automation",
       description: "Autonomous AI agents begin handling complex business workflows end-to-end.",
       impact: "Transforming how businesses operate and make decisions",
+      category: "industry"
+    },
+    {
+      year: "2025",
+      title: "Language Models Flourish",
+      description: "There are currently over 15,000 language models to choose from.",
+      impact: "Users and businesses have a wide spectrum of architectures and capabilities to pick based on need, cost, and specialty.",
       category: "industry"
     }
   ];
@@ -216,60 +231,6 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
       }, 1000);
     }
   }, [activeSection]);
-
-  const renderOverview = () => (
-    <div className="overview-section">
-      <div className="pipeline-flow">
-        <h2 className="section-title">Data Pipeline Flow</h2>
-        <div className="flow-diagram">
-          <div className="flow-stage">
-            <div className="stage-circle">1</div>
-            <span className="stage-name">Data Collection</span>
-          </div>
-          <div className="flow-arrow">→</div>
-          <div className="flow-stage">
-            <div className="stage-circle">2</div>
-            <span className="stage-name">Data Processing</span>
-          </div>
-          <div className="flow-arrow">→</div>
-          <div className="flow-stage">
-            <div className="stage-circle">3</div>
-            <span className="stage-name">Data Analysis</span>
-          </div>
-          <div className="flow-arrow">→</div>
-          <div className="flow-stage">
-            <div className="stage-circle">4</div>
-            <span className="stage-name">Data Visualization</span>
-          </div>
-          <div className="flow-arrow">→</div>
-          <div className="flow-stage">
-            <div className="stage-circle">5</div>
-            <span className="stage-name">Decision Making</span>
-          </div>
-        </div>
-      </div>
-      
-      <div className="overview-content">
-        <div className="feature-card">
-          <div className="feature-icon">📊</div>
-          <h3>Data Intelligence</h3>
-          <p>Transform raw data into actionable insights with our advanced analytics platform. Unlock hidden patterns and drive data-driven decisions.</p>
-        </div>
-        
-        <div className="feature-card">
-          <div className="feature-icon">🤖</div>
-          <h3>AI-Powered Analysis</h3>
-          <p>Leverage cutting-edge machine learning models to process and analyze complex datasets with unprecedented accuracy.</p>
-        </div>
-        
-        <div className="feature-card">
-          <div className="feature-icon">⚡</div>
-          <h3>Real-time Processing</h3>
-          <p>Get instant insights with our high-performance processing engine that handles data streams in real-time.</p>
-        </div>
-      </div>
-    </div>
-  );
 
   const renderNews = () => (
     <div className="news-section">
@@ -346,33 +307,34 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
       <div className="stars"></div>
       <div className="comets"></div>
 
-      {/* Back Button */}
-      {/*onGoBack && (
-        <button className="data-pipeline-back-button" onClick={onGoBack}>
-          ← Back
-        </button>
-      )*/}
-
       {/* Navigation Buttons */}
       <div className="navigation-buttons">
         <button className="nav-button" onClick={onNavigateToAboutAja}>
           About AJA Labs
         </button>
-        <button className="nav-button" onClick={onNavigateToUniverse}>
-          AJA Universe
+        <button 
+          className="nav-button universe-nav-button" 
+          onClick={onNavigateToUniverse}
+          aria-label="AJA Universe"
+        >
+          <img 
+            src={galaxyImage} 
+            alt="AJA Universe" 
+            className="universe-button-image"
+          />
         </button>
       </div>
 
       <div className="content-wrapper">
-        <h1 className="main-title">AI Business Intelligence Hub</h1>
+        <h1 className="main-title">Artificial Intelligence in Motion</h1>
         
         {/* Section Navigation */}
         <div className="section-nav">
           <button 
-            className={`section-nav-btn ${activeSection === 'overview' ? 'active' : ''}`}
-            onClick={() => setActiveSection('overview')}
+            className={`section-nav-btn ${activeSection === 'timeline' ? 'active' : ''}`}
+            onClick={() => setActiveSection('timeline')}
           >
-            Overview
+            Evolution
           </button>
           <button 
             className={`section-nav-btn ${activeSection === 'news' ? 'active' : ''}`}
@@ -381,22 +343,15 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
             AI Pulse
           </button>
           <button 
-            className={`section-nav-btn ${activeSection === 'timeline' ? 'active' : ''}`}
-            onClick={() => setActiveSection('timeline')}
-          >
-            Milestones
-          </button>
-          <button 
             className={`section-nav-btn ${activeSection === 'stats' ? 'active' : ''}`}
             onClick={() => setActiveSection('stats')}
           >
-            Data Insights
+            Value 
           </button>
         </div>
 
         {/* Dynamic Content */}
         <div className="section-content">
-          {activeSection === 'overview' && renderOverview()}
           {activeSection === 'news' && renderNews()}
           {activeSection === 'timeline' && renderTimeline()}
           {activeSection === 'stats' && renderStats()}
