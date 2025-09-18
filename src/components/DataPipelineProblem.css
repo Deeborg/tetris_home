@@ -1227,3 +1227,44 @@
   color: inherit;
   display: block;
 }
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px; /* Add some space above the buttons */
+  padding-bottom: 20px;
+}
+
+.page-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover {
+  background: rgba(100, 255, 218, 0.2);
+  border-color: #64ffda;
+}
+
+/* Style for the currently active page number */
+.page-btn.active {
+  background: #64ffda;
+  color: #0a0a1a; /* Dark text color */
+  border-color: #64ffda;
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.5);
+}
+
+/* Style for the disabled "Next" button */
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}

@@ -8,7 +8,10 @@ interface NewsItem {
   source: string;
 }
 
+const ITEMS_PER_PAGE = 3;
+
 const News: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState(1);
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +31,7 @@ const News: React.FC = () => {
       const data = await response.json();
       
       if (data.status === 'ok') {
-        const processedArticles = data.items.slice(0, 6).map((item: any) => ({
+        const processedArticles = data.items.map((item: any) => ({
           title: item.title,
           description: item.description?.replace(/<[^>]*>/g, '').substring(0, 150) + '...' || 'No description available.',
           link: item.link,
@@ -51,6 +54,38 @@ const News: React.FC = () => {
   useEffect(() => {
     fetchRSSFeed();
   }, []);
+  
+  // --- PAGINATION LOGIC ---
+  const totalPages = Math.ceil(newsItems.length / ITEMS_PER_PAGE);
+  const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+  const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
+  const currentItems = newsItems.slice(indexOfFirstItem, indexOfLastItem);
+  
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  };
+  
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+  
+  // --- NEW LOGIC: Calculate which page numbers to display ---
+  const getPageNumbers = () => {
+    if (totalPages <= 2) {
+      // If there are only 1 or 2 pages, show all of them
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+    
+    if (currentPage === totalPages) {
+      // If on the last page, show the last two pages (e.g., [3, 4])
+      return [totalPages - 1, totalPages];
+    }
+    
+    // Otherwise, show the current page and the next one (e.g., [1, 2] or [2, 3])
+    return [currentPage, currentPage + 1];
+  };
+
+  const pageNumbersToDisplay = getPageNumbers();
 
   if (loading) {
     return (
@@ -70,22 +105,50 @@ const News: React.FC = () => {
     );
   }
 
-  // KEY CHANGE IS HERE:
   return (
-    <div className="news-grid">
-      {newsItems.map((item, index) => (
-        // 1. This is now a simple <div>, so the card is not clickable.
-        <div key={index} className="news-card">
-          <h3 className="news-title">{item.title}</h3>
-          <p className="news-description">{item.description}</p>
-          
-          {/* 2. This is the new button. ONLY this part is a link. */}
-          <a href={item.link} target="_blank" rel="noopener noreferrer" className="read-more-link">
-            Read More →
-          </a>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="news-grid">
+        {currentItems.map((item, index) => (
+          <div key={index} className="news-card">
+            <h3 className="news-title">{item.title}</h3>
+            <p className="news-description">{item.description}</p>
+            <a href={item.link} target="_blank" rel="noopener noreferrer" className="read-more-link">
+              Read More →
+            </a>
+          </div>
+        ))}
+      </div>
+
+      {/* --- PAGINATION CONTROLS (Using the new dynamic page numbers) --- */}
+      <div className="pagination-controls">
+        <button 
+          onClick={handlePrevPage} 
+          className="page-btn" 
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        
+        {/* We now map over the limited set of page numbers */}
+        {pageNumbersToDisplay.map(pageNumber => (
+          <button
+            key={pageNumber}
+            onClick={() => setCurrentPage(pageNumber)}
+            className={`page-btn ${currentPage === pageNumber ? 'active' : ''}`}
+          >
+            {pageNumber}
+          </button>
+        ))}
+
+        <button 
+          onClick={handleNextPage} 
+          className="page-btn" 
+          disabled={currentPage >= totalPages}
+        >
+          Next
+        </button>
+      </div>
+    </>
   );
 };
 
