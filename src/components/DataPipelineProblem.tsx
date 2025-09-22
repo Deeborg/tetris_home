@@ -235,9 +235,9 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
 
       {/* Navigation Buttons */}
       <div className="navigation-buttons">
-        <button className="nav-button" onClick={onNavigateToAboutAja}>
+        {/* <button className="nav-button" onClick={onNavigateToAboutAja}>
           About AJA Labs
-        </button>
+        </button> */}
         <button 
           className="nav-button universe-nav-button" 
           onClick={onNavigateToUniverse}
