@@ -8,7 +8,7 @@ interface NewsItem {
   source: string;
 }
 
-const ITEMS_PER_PAGE = 3;
+const ITEMS_PER_PAGE = 6;
 
 const News: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
