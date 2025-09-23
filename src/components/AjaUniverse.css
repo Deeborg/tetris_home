@@ -21,41 +21,25 @@
 
 /* --- Typography --- */
 .main-title {
-  padding: 12px 24px;
-  margin: 10px auto;
-  font-size: 2.2rem;
-  font-weight: 600;
+  margin: 24px auto 10px auto;
+  font-size: 2.4rem;
+  font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  position: relative;
   display: inline-block;
-  border-radius: 15px;
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.1) 0%, 
-    rgba(135, 206, 235, 0.15) 50%, 
-    rgba(255, 255, 255, 0.1) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.4),
-    inset 0 2px 0 rgba(255, 255, 255, 0.3),
-    0 0 80px rgba(135, 206, 235, 0.3);
-  color: #ffffff;
+  color: #fff;
   text-shadow: 
     0 0 30px #87CEEB,
     0 0 60px rgba(135, 206, 235, 0.8),
     0 4px 8px rgba(0, 0, 0, 0.6);
   animation: fadeInDown 1s ease-out, titlePulse 4s ease-in-out infinite;
   transition: all 0.4s ease;
+  /* Removed background, border, border-radius, box-shadow, backdrop-filter */
 }
 
 .main-title:hover {
   transform: scale(1.03);
-  box-shadow: 
-    0 16px 60px rgba(0, 0, 0, 0.5),
-    inset 0 3px 0 rgba(255, 255, 255, 0.4),
-    0 0 120px rgba(135, 206, 235, 0.6);
+
   text-shadow: 
     0 0 40px #87CEEB,
     0 0 80px rgba(135, 206, 235, 1),
@@ -68,10 +52,7 @@
       0 0 30px #87CEEB,
       0 0 60px rgba(135, 206, 235, 0.8),
       0 4px 8px rgba(0, 0, 0, 0.6);
-    box-shadow: 
-      0 12px 40px rgba(0, 0, 0, 0.4),
-      inset 0 2px 0 rgba(255, 255, 255, 0.3),
-      0 0 80px rgba(135, 206, 235, 0.3);
+
   }
   50% { 
     text-shadow: 
@@ -79,10 +60,7 @@
       0 0 80px rgba(135, 206, 235, 1),
       0 0 120px rgba(135, 206, 235, 0.6),
       0 6px 12px rgba(0, 0, 0, 0.8);
-    box-shadow: 
-      0 16px 50px rgba(0, 0, 0, 0.5),
-      inset 0 3px 0 rgba(255, 255, 255, 0.4),
-      0 0 100px rgba(135, 206, 235, 0.5);
+
   }
 }
 

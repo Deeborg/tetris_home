@@ -488,14 +488,15 @@
 
 .universe-nav-button {
   padding: 0;
-  width: 44px;
-  height: 44px;
-  min-width: 44px; /* Ensure it doesn't shrink */
+  width: 150px;         
+  height: 150px;        
+  min-width: 150px;
   background: transparent;
-  border: 1px solid rgba(100, 255, 218, 0.3);
-  border-radius: 50%;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  border: none;       
+  border-radius: 0;   
+  overflow: visible;   
+  box-shadow: none;    
+  transition: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -504,18 +505,21 @@
 .universe-button-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; 
+  border-radius: 0;    
+  box-shadow: none;    
+  background: none;
   transition: transform 0.3s ease;
 }
 
 .universe-nav-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(0, 247, 255, 0.7);
-  border-color: #00f7ff;
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
 }
 
 .universe-nav-button:hover .universe-button-image {
-  transform: scale(1.1);
+  transform: scale(1.05); 
 }
 
 .content-wrapper {
@@ -1268,3 +1272,118 @@
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
 }
+
+.atom-button {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+  z-index: 10;
+}
+
+.atom-button:hover {
+  transform: scale(1.07) rotate(-2deg);
+}
+
+.atom-orbit {
+  position: absolute;
+  border: 2px solid #00f7ffcc;
+  border-radius: 50%;
+  opacity: 0.7;
+  pointer-events: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation-timing-function: linear;
+}
+
+.orbit1 {
+  width: 90px;
+  height: 40px;
+  border-color: #00f7ffcc;
+  animation: atom-orbit-1 2.5s linear infinite;
+}
+
+.orbit2 {
+  width: 40px;
+  height: 90px;
+  border-color: #ff6bffc0;
+  animation: atom-orbit-2 3.2s linear infinite;
+}
+
+.orbit3 {
+  width: 70px;
+  height: 70px;
+  border-color: #fff8;
+  animation: atom-orbit-3 2.1s linear infinite;
+}
+
+@keyframes atom-orbit-1 {
+  0% { transform: translate(-50%, -50%) rotate(0deg);}
+  100% { transform: translate(-50%, -50%) rotate(360deg);}
+}
+@keyframes atom-orbit-2 {
+  0% { transform: translate(-50%, -50%) rotate(0deg);}
+  100% { transform: translate(-50%, -50%) rotate(-360deg);}
+}
+@keyframes atom-orbit-3 {
+  0% { transform: translate(-50%, -50%) rotate(30deg);}
+  100% { transform: translate(-50%, -50%) rotate(390deg);}
+}
+
+.atom-nucleus {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 30% 30%, #00f7ff 70%, #ff6bff 100%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 24px 8px #00f7ff55,
+    0 0 40px 16px #ff6bff33;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: nucleus-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes nucleus-glow {
+  0% { box-shadow: 0 0 24px 8px #00f7ff55, 0 0 40px 16px #ff6bff33; }
+  100% { box-shadow: 0 0 36px 16px #00f7ff99, 0 0 60px 24px #ff6bff66; }
+}
+
+.atom-btn-text {
+  position: absolute;
+  left: 50%;
+  top: 110%;
+  transform: translate(-50%, 0);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px #00f7ff, 0 0 16px #ff6bff;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.atom-button:hover .atom-btn-text {
+  color: #00f7ff;
+}
+
+/* Optional: Center the button in your navigation-buttons container */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -72,7 +72,7 @@ class Tetris {
   init() {
     this.curPiece = { data: null, colors: [0,0,0], x: 0, y: 0 };
     this.lastMove = Date.now();
-    this.curSpeed = 50 + Math.random() * 50;
+    this.curSpeed = 20 + Math.random() * 20;
     this.unitSize = 20;
     this.linesCleared = 0;
     this.level = 0;

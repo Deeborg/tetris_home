@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./DataPipelineProblem.css";
-import galaxyImage from "../assets/Galaxy.png";
+import galaxyImage from "../assets/ALTEX_Universe.png";
 import News from "./AiNews";
 
 
@@ -89,7 +89,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
     },
     {
       year: "2020",
-      title: "GPT-3 Launch",
+      title: "GPT-3 Release",
       description: "OpenAI releases GPT-3, demonstrating unprecedented language generation capabilities.",
       impact: "Sparked the generative AI revolution",
       category: "product"
@@ -176,7 +176,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
     <div className="news-section">
       <h2 className="section-title">
         <span className="title-icon">📰</span>
-        The AI Business Report
+        ALTeX Newsroom
       </h2>
       <News />
     </div>
@@ -186,7 +186,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
     <div className="timeline-section">
       <h2 className="section-title">
         <span className="title-icon">🕒</span>
-        AI Evolution Timeline
+        Evolution of AI
       </h2>
       <div className="timeline-container">
         {timelineEvents.map((event, index) => (
@@ -209,7 +209,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
     <div className="stats-section">
       <h2 className="section-title">
         <span className="title-icon">📈</span>
-        AI & Automation Impact 
+        Cognitive Value
       </h2>
       <div className="stats-grid">
         {statsCards.map((stat, index) => (
@@ -238,16 +238,16 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
         {/* <button className="nav-button" onClick={onNavigateToAboutAja}>
           About AJA Labs
         </button> */}
-        <button 
-          className="nav-button universe-nav-button" 
+        <button
+          className="atom-button"
           onClick={onNavigateToUniverse}
-          aria-label="AJA Universe"
+          aria-label="Explore ALTeX"
         >
-          <img 
-            src={galaxyImage} 
-            alt="AJA Universe" 
-            className="universe-button-image"
-          />
+          <span className="atom-orbit orbit1"></span>
+          <span className="atom-orbit orbit2"></span>
+          <span className="atom-orbit orbit3"></span>
+          <span className="atom-nucleus"></span>
+          <span className="atom-btn-text">Explore ALTeX</span>
         </button>
       </div>
 
@@ -272,7 +272,7 @@ const DataPipelineProblem: React.FC<DataPipelineProblemProps> = ({
             className={`section-nav-btn ${activeSection === 'stats' ? 'active' : ''}`}
             onClick={() => setActiveSection('stats')}
           >
-            Value 
+            Impact 
           </button>
         </div>
 

@@ -72,7 +72,7 @@ export default function PillToggle({ onToggle, isRed, delay = 500 }: PillToggleP
   return (
     <div className="pill-toggle-container">
       <div className="pill-tooltip">
-        {showRed ? "Business as Usual" : "See What's Really Happening"}
+        {showRed ? "Buckle Up!" : "See What's Happening"}
       </div>
       <div
         className={`pill-toggle${showRed ? " red" : ""}${isLoading ? " loading" : ""}`}

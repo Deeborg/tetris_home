@@ -2,7 +2,11 @@
 
 import React, { useState } from 'react';
 import './AjaUniverse.css';
-//import Timeline from './Timeline'; 
+//import Timeline from './Timeline';
+import compliBearIcon from '../assets/complibear.png'; 
+import vittoraIcon from '../assets/vittora.png'; 
+import isAuditIcon from '../assets/isaudit.png'; 
+import dataVizIcon from '../assets/dataviz.png'; 
 
 // --- TypeScript Interfaces ---
 // ADDED a 'color' property to define the background for each icon
@@ -21,11 +25,11 @@ interface UniverseItem {
 // UPDATED positions for atomic orbital arrangement with larger intersecting ellipses
 const universeItems: UniverseItem[] = [
   // Products Universe - Left Side (Expanded atomic orbital pattern around center at 25%, 50%)
-  { id: 'tickBack', side: 'product', title: 'TickBack', top: '30%', left: '40%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/8832/8832119.png', description: 'Unravel Gross to Net Process to identify all revenue leakages using Pre-trained and setup ML Models.Tickback transforms the process of managing Gross to Net into a continuous loop of analysing, reporting, learning, and optimizing to combat revenue leakage and improve margins.', color: '#e53935' },
-  { id: 'vittora1', side: 'product', title: 'Vittora', top: '30%', left: '10%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/3439/3439130.png', description: 'A dynamic playground where 3 billion datapoints are crunched every hour, transforming data into actionable insights - fuelling smarter, faster financial decisions.', color: '#1e4d5aff' },
+  { id: 'tickBack', side: 'product', title: 'TickBack', top: '30%', left: '40%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/8832/8832119.png', description: 'Unravel Gross to Net Process to identify all revenue leakages using Pre-trained and setup ML Models. Tickback transforms the process of managing Gross to Net into a continuous loop of analysing, reporting, learning, and optimizing to combat revenue leakage and improve margins.', color: '#e53935' },
+  { id: 'vittora1', side: 'product', title: 'Vittora', top: '30%', left: '10%', iconUrl: vittoraIcon, description: 'A dynamic playground where 3 billion datapoints are crunched every hour, transforming data into actionable insights - fuelling smarter, faster financial decisions.', color: '#1e4d5aff' },
   { id: 'oats', side: 'product', title: 'OATS', top: '50%', left: '25%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/2885/2885417.png', description: 'Open Audit Tracking System to automate reporting and exception closure post audit observations and single stop solution for all review documentation', color: '#7eae71ff' },
-  { id: 'compliBear', side: 'product', title: 'CompliBear', top: '15%', left: '25%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/2823/2823616.png', description: 'Catalyst to transform insights into Innovations using CoSaaS solution and providing Autonomous Control Monitoring.All are resolved using CompliBear solution that helps with a savings of 52% lower losses, 58% faster detection of anomalies and savings of 8730 minutes per month.', color: '#6A1B9A' },
-  { id: 'sentinelAI', side: 'product', title: 'Sentinel AI', top: '70%', left: '40%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/2491/2491935.png', description: 'AI-driven investment analytics platform that delivers real-time portfolio insights, risk monitoring, and data-driven decision support for institutional investors and hedge funds.', color: '#3770c6ff' },
+  { id: 'compliBear', side: 'product', title: 'CompliBear', top: '15%', left: '25%', iconUrl: compliBearIcon, description: 'Audit co-pilot designed to transform insights into innovations. It operates on a CoSaaS model, enabling customised solutions and orchestration tailored to each business\'s unique operations and systems. CompliBear helps businesses analyse large volumes of unstructured data, also known as data lake analytics, to extract valuable insights.', color: '#6A1B9A' },
+  { id: 'sentinelAI', side: 'product', title: 'Sentinel AI', top: '70%', left: '40%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/2491/2491935.png', description: 'An AI-driven platform that supports auditors across the full lifecycle—planning, execution, and reporting. Trained on 350,000+ risks and controls and continuously enriched with a real-time global risk database, it adapts dynamically to macroeconomic and microeconomic trends. The tool also features an interactive chatbot, enabling auditors to instantly query risks, controls, and audit procedures for smarter, faster decision-making.', color: '#3770c6ff' },
   { id: 'lawRence', side: 'product', title: 'LawRence', top: '70%', left: '10%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/1041/1041285.png', description: 'Powered by a sophisticated Gen AI model, Lawrence possesses the unique ability to decipher and analyze complex legal language with unparalleled precision. Lawrence is linked to a vast database of laws, precedents, and legal documents, meticulously organized and stored as dense vectors.', color: '#c2850c' },
   { id: 'forensCity', side: 'product', title: 'ForensCity', top: '85%', left: '25%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/2942/2942978.png', description: 'Take your pick of the lot from this host of applications that are built using Digital Forensic Standards to analyse any form of data.', color: '#00838F' },
   //{ id: 'ehs', side: 'product', title: 'EHS', top: '50%', left: '8%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/3013/3013234.png', description: 'Using more than 20 Statistical Models and over 50 rule based ratios, prepare a detailed Entity Health Score just based on your trial balance', color: '#556b2f' },
@@ -37,8 +41,8 @@ const universeItems: UniverseItem[] = [
   { id: 'secondment', side: 'service', title: 'Secondment Services', top: '70%', left: '60%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/1077/1077114.png', description: 'Secondment services provide skilled professionals to address short-term talent gaps and deliver critical projects seamlessly. They bring specialized expertise, ensuring business continuity and knowledge transfer. This flexible approach helps organizations stay agile and meet objectives efficiently.\n\nHow We Help:\nWe offer experienced professionals across finance, technology, risk, and operations who seamlessly integrate with your team. Our secondment model is flexible, ensuring the right expertise at the right time to meet deadlines, maintain compliance, and achieve business goals efficiently.', color: '#26d0dcff' },
   { id: 'dataEngineering', side: 'service', title: 'Data Engineering', top: '70%', left: '90%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/2103/2103658.png', description: 'Data engineering plays a key role in finance by enabling seamless collection, integration, and transformation of large volumes of financial data. It builds reliable pipelines that ensure data accuracy and real-time availability for reporting, forecasting, and compliance. By providing a solid data foundation, data engineering empowers finance teams to make faster, data-driven decisions and uncover actionable insights.\n\nHow We Help:\nWe build end-to-end data infrastructure tailored to your business needs—covering data ingestion, ETL/ELT pipelines, cloud data warehousing, and real-time data processing. Our solutions ensure data quality, governance, and scalability, empowering your teams to make faster, data-driven decisions.', color: '#0277BD' },
   //{ id: 'genAITs', side: 'service', title: 'Gen AITs', top: '15%', left: '75%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/4341/4341139.png', description: 'Gen AI tools streamline data processing, automate repetitive tasks, and generate actionable insights from vast datasets. They enhance productivity by enabling natural language interaction, quick report creation, and intelligent recommendations. This empowers teams to work smarter, make faster decisions, and focus on innovation.\n\nHow We Help:\nWe identify and implement the right Gen AI tools for your business use cases—whether for content creation, chatbots, data summarization, or process automation. Our team ensures seamless integration, security, and measurable outcomes so you can maximize value from AI adoption.', color: '#5E35B1' },
-  { id: 'dataViz', side: 'service', title: 'Data Visualization', top: '85%', left: '75%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/2103/2103665.png', description: 'Data visualization transforms complex financial data into clear, interactive dashboards and charts. It helps reveal patterns, trends, and anomalies quickly, enabling faster decision-making. By making insights easy to understand, it drives collaboration and supports strategic planning.\n\nHow We Help:\nWe design intuitive dashboards and interactive reports using modern BI tools like Power BI, Tableau, and Looker. Our solutions focus on clarity, usability, and storytelling—helping your teams monitor performance, identify opportunities, and act with confidence.', color: '#AD1457' },
-  { id: 'isAudit', side: 'service', title: 'IS Audit', top: '15%', left: '75%', iconUrl: 'https://cdn-icons-png.flaticon.com/512/3281/3281307.png', description: 'Information Systems Audit provides comprehensive evaluation of IT controls, security frameworks, and compliance requirements. It identifies vulnerabilities, ensures regulatory adherence, and strengthens cybersecurity posture. This systematic approach helps organizations mitigate risks and maintain operational integrity.\n\nHow We Help:\nWe conduct thorough IS audits covering infrastructure security, data governance, access controls, and compliance frameworks. Our certified auditors provide detailed assessments, remediation roadmaps, and ongoing monitoring to ensure your IT environment meets industry standards and regulatory requirements.', color: '#FF5722' },
+  { id: 'dataViz', side: 'service', title: 'Data Visualization', top: '85%', left: '75%', iconUrl: dataVizIcon, description: 'Data visualization transforms complex financial data into clear, interactive dashboards and charts. It helps reveal patterns, trends, and anomalies quickly, enabling faster decision-making. By making insights easy to understand, it drives collaboration and supports strategic planning.\n\nHow We Help:\nWe design intuitive dashboards and interactive reports using modern BI tools like Power BI, Tableau, and Looker. Our solutions focus on clarity, usability, and storytelling—helping your teams monitor performance, identify opportunities, and act with confidence.', color: '#AD1457' },
+  { id: 'isAudit', side: 'service', title: 'IS Audit', top: '15%', left: '75%', iconUrl: isAuditIcon, description: 'Information Systems Audit provides comprehensive evaluation of IT controls, security frameworks, and compliance requirements. It identifies vulnerabilities, ensures regulatory adherence, and strengthens cybersecurity posture. This systematic approach helps organizations mitigate risks and maintain operational integrity.\n\nHow We Help:\nWe conduct thorough IS audits covering infrastructure security, data governance, access controls, and compliance frameworks. Our certified auditors provide detailed assessments, remediation roadmaps, and ongoing monitoring to ensure your IT environment meets industry standards and regulatory requirements.', color: '#FF5722' },
 ];
 
 // --- Component Props Interface ---
@@ -71,7 +75,7 @@ const AjaUniverse: React.FC<AjaUniverseProps> = ({ onGoBack }) => {
         </button>
       )}
 
-      <h1 className="main-title">ALTeX  Universe</h1>
+      <h1 className="main-title"></h1>
 
       <div className="universe-labels">
         <h2 className="products-universe-label">Products </h2>
@@ -121,13 +125,28 @@ const AjaUniverse: React.FC<AjaUniverseProps> = ({ onGoBack }) => {
                 <p style={{ whiteSpace: 'pre-line' }}>{selectedItem.description}</p>
               )}
             </div>
-            <div className="modal-footer">
-              {(selectedItem.id === 'vittora1' || selectedItem.id === 'compliBear') && (
-                <button className="click-tools-button">
-                  Click tools
-                </button>
-              )}
-            </div>
+              <div className="modal-footer">
+                {selectedItem.id === 'vittora1' && (
+                  <a
+                    className="click-tools-button"
+                    href="https://www.altex.dev/vittora"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Access Sandbox
+                  </a>
+                )}
+                {selectedItem.id === 'compliBear' && (
+                  <a
+                    className="click-tools-button"
+                    href="https://www.altex.dev/complibear"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                   Access Sandbox
+                  </a>
+                )}
+              </div>
           </div>
         </div>
       )}
