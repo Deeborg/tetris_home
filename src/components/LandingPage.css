@@ -243,3 +243,145 @@
     font-size: 1rem;
   }
 }
+/* .play-button-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20; 
+}
+
+.play-button {
+  padding: 15px 40px;
+  font-size: 24px;
+  font-family: "Press Start 2P", "VT323", monospace; 
+  color: white;
+  background-color: #1a1a1a;
+  border: 3px solid #00f2ff;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff, inset 0 0 5px #00f2ff;
+  transition: all 0.2s ease-in-out;
+}
+
+.play-button:hover {
+  background-color: #00f2ff;
+  color: #1a1a1a;
+  box-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff, inset 0 0 10px #ffffff;
+} */
+ /*
+  REPLACE your old button styles in LandingPage.css
+  with this new icon-based version.
+*/
+
+/*
+  REPLACE your old button styles in LandingPage.css
+  with this new, high-fidelity version inspired by the image.
+*/
+
+/* Animation for the subtle glow pulse */
+/*
+  REPLACE your old button styles in LandingPage.css
+  with this new, dual-color neon version.
+*/
+
+/* Animation for the subtle glow pulse */
+/*
+  REPLACE your old button styles in LandingPage.css
+  with this new, highly visible version.
+*/
+
+/* Animation for a more dramatic pulse */
+@keyframes intense-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px #097ecc, 0 0 25px #068de8;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px #047ecf, 0 0 50px #0680d1;
+    transform: scale(1.03);
+  }
+}
+
+.play-button-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.play-button {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  
+  /* --- THE MAIN FIX: Add a dark background for contrast --- */
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px); /* Adds a cool "glass" effect */
+
+  /* The outer ring is now a simple, crisp border */
+  border: 3px solid #72aed6;
+
+  /* The glow comes from the box-shadow */
+  box-shadow: 0 0 15px #72aed6, 0 0 25px #72aed6;
+
+  /* Use the new, more intense animation */
+  animation: intense-pulse 2.5s infinite ease-in-out;
+  transition: all 0.2s ease-out;
+}
+
+/* The inner triangle */
+.play-button::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+  border-left: 32px solid #00b2fe; /* Bright Pink */
+
+  margin-left: 7px; /* Nudge for visual centering */
+
+  /* Make the triangle itself glow brightly */
+  filter: drop-shadow(0 0 10px #72aed6);
+  transition: all 0.2s ease-out;
+}
+
+
+/* --- HOVER and ACTIVE states --- */
+
+.play-button:hover {
+  transform: scale(1.1);
+  animation-play-state: paused; /* Pause the pulse for a direct feel */
+  background-color: rgba(0, 0, 0, 0.6);
+  
+  /* Intensify the glow on hover */
+  box-shadow: 0 0 30px #ffffff, 0 0 50px #72c9d6;
+  border-color: #fff;
+}
+
+.play-button:hover::before {
+  /* Make the triangle glow white-hot on hover */
+  border-left-color: #fff;
+  filter: drop-shadow(0 0 15px #fff);
+}
+
+.play-button:active {
+  transform: scale(1.05);
+  transition-duration: 0.1s;
+}
